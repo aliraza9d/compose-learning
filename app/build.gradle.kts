@@ -2,13 +2,14 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("com.google.devtools.ksp") version "2.0.21-1.0.25"
+
 }
 
 android {
     namespace = "com.example.composepractice"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 35
+
 
     defaultConfig {
         applicationId = "com.example.composepractice"
@@ -16,7 +17,6 @@ android {
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -57,4 +57,11 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+
+    implementation("io.coil-kt.coil3:coil-compose:3.2.0")
+    implementation("io.coil-kt.coil3:coil-network-okhttp:3.2.0")
+    // https://mvnrepository.com/artifact/androidx.compose.material/material-icons-extended
+    runtimeOnly("androidx.compose.material:material-icons-extended:1.7.8")
+    runtimeOnly("androidx.compose.material:material:1.9.5")
+
 }
